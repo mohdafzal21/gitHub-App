@@ -1,4 +1,31 @@
-var React = require('react');
+import React from 'react';
+import PropTypes from 'prop-types';
+
+//function componants
+const SelectLanguage = (props) => {
+  console.log(props);
+  const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
+  
+      return (
+        <ul className='languages'>
+        {languages.map((lang) => {
+         return  <li
+          style={lang === props.SelectedLanguage ? { color: '#d0021b' } : null}
+          onClick={() => props.onSelect(lang)}
+          key={lang}>
+          {lang}
+          </li>
+          })}
+  </ul>
+
+      )
+    
+}
+
+SelectLanguage.propTypes = {
+  SelectedLanguage:PropTypes.string.isRequired,
+  onSelect: PropTypes.func.isRequired
+}
 
 class Popular extends React.Component {
   constructor(props) {
@@ -9,29 +36,21 @@ class Popular extends React.Component {
 
     // this.updateLanguage = this.updateLanguage.bind(this);
   }
-  updateLanguage = (lang)=>{
-    this.setState( ()=> {
+  updateLanguage = (lang) => {
+    this.setState(() => {
       return {
         selectedLanguage: lang,
       }
     });
   }
   render() {
-    var languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
 
     return (
       <div>
-        <ul className='languages'>
-          {languages.map( (lang)=> {
-            return (
-              <li
-                style={lang === this.state.selectedLanguage ? {color: '#d0021b'} : null}
-                key={lang}
-                onClick={()=>this.updateLanguage(lang)}>
-                {lang}</li>
-            )
-          })}
-        </ul>
+        <SelectLanguage
+          SelectedLanguage={this.state.selectedLanguage}
+          onSelect={this.updateLanguage} />
+
       </div>
     )
   }
