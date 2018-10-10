@@ -25,3 +25,21 @@ li {
   font-weight: bold;
   cursor: pointer;
 }
+
+.popular-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.popular-item{
+  margin:  20px;
+  text-align: center;
+
+}
+
+.popular-rank{
+  margin: 10px;
+  font-size: 20px;
+
+}
