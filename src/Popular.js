@@ -7,10 +7,10 @@ class Popular extends React.Component {
       selectedLanguage: 'All',
     };
 
-    this.updateLanguage = this.updateLanguage.bind(this);
+    // this.updateLanguage = this.updateLanguage.bind(this);
   }
-  updateLanguage(lang) {
-    this.setState(function () {
+  updateLanguage=(lang)=> {
+    this.setState( ()=> {
       return {
         selectedLanguage: lang,
       }
@@ -22,16 +22,16 @@ class Popular extends React.Component {
     return (
       <div>
         <ul className='languages'>
-          {languages.map(function (lang) {
+          {languages.map((lang)=> {
             return (
-              <li
+              <li 
                 style={lang === this.state.selectedLanguage ? {color: '#d0021b'} : null}
-                onClick={this.updateLanguage.bind(null, lang)}
+                onClick={()=>this.updateLanguage(lang)}
                 key={lang}>
                   {lang}
               </li>
             )
-          }, this)}
+          })}
         </ul>
       </div>
     )
