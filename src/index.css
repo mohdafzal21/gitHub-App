@@ -16,6 +16,7 @@ li {
 }
 
 .languages{
+  
   display: flex;
   justify-content: center
 }
@@ -24,12 +25,18 @@ li {
   margin: 10px;
   font-weight: bold;
   cursor: pointer;
+  
+  
+  
 }
 
 .popular-list{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  background: rgb(255, 206, 200);
+  
+  
 }
 
 .popular-item{
@@ -41,9 +48,37 @@ li {
 .popular-rank{
   margin: 10px;
   font-size: 20px;
+  
 
 }
 .avatar{
   height: 100px;;
   width: 100px ;
 }
+.btn{
+  display: inline-block;
+  border: none;
+  color: #171919;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  font-family: Verdana;
+  width: auto;
+  height: auto;
+  font-size: 25px;
+  padding: 10px 40px;
+  box-shadow: inset 0px 1px 1px 0 #90ADD2,0px 5px 0px 0 #223955,0px 8px 5px 0 #B3B3B3;
+  -moz-box-shadow: inset 0px 1px 1px 0 #90ADD2,0px 5px 0px 0 #223955,0px 8px 5px 0 #B3B3B3;
+  -webkit-box-shadow: inset 0px 1px 1px 0 #90ADD2,0px 5px 0px 0 #223955,0px 8px 5px 0 #B3B3B3;
+  text-shadow: 0 1px 0 #48576D;
+  background-image: linear-gradient(to bottom, #5884BC, #395e8d);
+  background-color: #4471a9;
+ }
+ .btn:hover, .btn:active{
+  border: none;
+  color: #FFF;
+  box-shadow: inset 0px 1px 0px 0 #90ADD2,0px 2px 0px 0 #223955,0px 4px 3px 0 #6B6B6B;
+  -moz-box-shadow: inset 0px 1px 0px 0 #90ADD2,0px 2px 0px 0 #223955,0px 4px 3px 0 #6B6B6B;
+  -webkit-box-shadow: inset 0px 1px 0px 0 #90ADD2,0px 2px 0px 0 #223955,0px 4px 3px 0 #6B6B6B;
+  background-color: #395e8d;
+ }
