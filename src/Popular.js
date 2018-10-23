@@ -4,17 +4,17 @@ import PropTypes from 'prop-types'
 // var PropTypes = require('prop-types');
 // var api = require('../utils/api');
 
- function SelectLanguage(props) {
+function SelectLanguage({ selectedLanguage, onSelect }) {
   var languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
   return (
     <ul className='languages'>
-      {languages.map((lang)=> {
+      {languages.map((lang) => {
         return (
           <li
-            style={lang === props.selectedLanguage ? {color: '#d0021b'} : null}
-            onClick={props.onSelect(lang)}
+            style={lang === selectedLanguage ? { color: '#d0021b' } : null}
+            onClick={() => onSelect(lang)}
             key={lang}>
-              {lang}
+            {lang}
           </li>
         )
       })}
@@ -22,10 +22,10 @@ import PropTypes from 'prop-types'
   )
 }
 
- function RepoGrid(props) {
+function RepoGrid({repos}) {
   return (
     <ul className='popular-list'>
-      {props.repos.map((repo, index) => {
+      {repos.map((repo, index) => {
         return (
           <li key={repo.name} className='popular-item'>
             <div className='popular-rank'>#{index + 1}</div>
@@ -40,13 +40,14 @@ import PropTypes from 'prop-types'
               <li><a href={repo.html_url}>{repo.name}</a></li>
               <li>@{repo.owner.login}</li>
               <li>{repo.stargazers_count} stars</li>
+              <li><button className="btn">Follow</button></li>
             </ul>
           </li>
         )
       })}
     </ul>
   )
-} 
+}
 /// PropTypes exports a range of validators that can be used to make sure the data you receive is valid.
 
 RepoGrid.propTypes = {
@@ -68,11 +69,11 @@ class Popular extends React.Component {
 
     // this.updateLanguage = this.updateLanguage.bind(this);
   }
-  componentDidMount() {
+  componentDidMount = () => {
     this.updateLanguage(this.state.selectedLanguage)
   }
-  updateLanguage=(lang)=> {
-    this.setState(()=> {
+  updateLanguage = (lang) => {
+    this.setState(() => {
       return {
         selectedLanguage: lang,
         repos: null
@@ -80,8 +81,8 @@ class Popular extends React.Component {
     });
 
     fetchPopularRepos(lang)
-      .then((repos)=> {
-        this.setState(()=> {
+      .then((repos) => {
+        this.setState(() => {
           return {
             repos: repos
           }

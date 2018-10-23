@@ -1,4 +1,4 @@
-var axios = require('axios');
+const axios = require('axios');
 
 
 const fetchPopularRepos = function (language) {
