@@ -17,8 +17,12 @@ li {
 
 .languages{
   display: flex;
-  justify-content: center
+  justify-content: center;
+  background-color: black;
+  color: aliceblue;
+
 }
+
 
 .languages li{
   margin: 10px;
@@ -27,11 +31,19 @@ li {
 }
 
 .popular-list{
+ 
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  padding: 10%;
+  padding-top: 0%;
+  background-color: darkgrey
 }
-
+.avatar{
+  border-radius: 20%;
+  height: 100px;
+  width: 100px;
+}
 .popular-item{
   margin:  20px;
   text-align: center;
